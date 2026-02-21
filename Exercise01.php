@@ -29,10 +29,6 @@
 
         //actualiza el array
         $_SESSION['array'][$position] = $nValue;
-
-        //b) Consigue que se mantenga las modificaciones en el array.
-        //muestra el nuevo valor en la posicion
-        echo "Current array: " . implode(", ", $_SESSION['array']);
     }
 
     //c) Añade un botón para calcular el valor medio.
@@ -40,15 +36,10 @@
     if (isset($_POST['average'])) {
 
         $sum = 0;
-        foreach ($_SESSION['array'] as $value) {
-            $sum += (int)$value;
+        if (isset($_POST['average'])) {
+            $average = array_sum($_SESSION['array']) / count($_SESSION['array']);
+            echo "Average: " . $average;
         }
-
-        echo "Current array: " . implode(", ", $_SESSION['array']) . "</br>";
-
-        $average = $sum / count($_SESSION['array']);
-
-        echo "Average: " . $average . "</br>";
     }
 
     //d) Botón reset limpia el formulario
@@ -56,8 +47,13 @@
 
         // remove all session variables (log out)
         session_unset();
+        $_SESSION['array'] = [10, 20, 30];
         echo "All variables removed.";
     }
+
+    //b) Consigue que se mantenga las modificaciones en el array.
+    //muestra el nuevo valor en la posicion
+    echo "Current array: " . implode(", ", $_SESSION['array']);
 
     ?>
 
