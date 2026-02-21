@@ -58,15 +58,27 @@
         if (isset($_POST['remove']) && isset($_SESSION['product'])) {
             $product = $_SESSION['product'];
             if ($product === 'Milk') {
-                $_SESSION['Milk']  -= $quantity;
+                // Controlar que no se quiten más unidades de las que haya
+                if ($quantity > $_SESSION['Milk']) {
+                    echo "<p style='color:red'>No more milk.</p>";
+                } else {
+                    $_SESSION['Milk'] -= $quantity;
+                }
             } else {
-                $_SESSION['Soft drink'] -= $quantity;
+                // Controlar que no se quiten más unidades de las que haya
+                if ($quantity > $_SESSION['Soft drink']) {
+                    echo "<p style='color:red'>No more soft drinks.</p>";
+                } else {
+                    $_SESSION['Soft drink'] -= $quantity;
+                }
             }
         }
 
 
         if (isset($_POST['reset'])) {
             session_unset();
+            $_SESSION['Milk'] = 0;
+            $_SESSION['Soft drink'] = 0;
         }
     }
 
