@@ -58,9 +58,9 @@
         if (isset($_POST['remove']) && isset($_SESSION['product'])) {
             $product = $_SESSION['product'];
             if ($product === 'Milk') {
-                $_SESSION['Milk']  += $quantity;
+                $_SESSION['Milk']  -= $quantity;
             } else {
-                $_SESSION['Soft drink'] += $quantity;
+                $_SESSION['Soft drink'] -= $quantity;
             }
         }
 
