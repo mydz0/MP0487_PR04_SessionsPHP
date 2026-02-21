@@ -45,7 +45,6 @@
         // remove all session variables (log out)
         session_unset();
         $_SESSION['array'] = [10, 20, 30];
-        echo "All variables removed.";
     }
 
     //b) Consigue que se mantenga las modificaciones en el array.
