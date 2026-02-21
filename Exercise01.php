@@ -35,8 +35,6 @@
 
     if (isset($_POST['average'])) {
         $average = array_sum($_SESSION['array']) / count($_SESSION['array']);
-
-        echo "Current array: " . implode(", ", $_SESSION['array']) . "<br>";
         echo "Average: " . $average;
     }
 
@@ -51,7 +49,7 @@
 
     //b) Consigue que se mantenga las modificaciones en el array.
     //muestra el nuevo valor en la posicion
-    echo "Current array: " . implode(", ", $_SESSION['array']);
+    echo "Current array: " . implode(", ", $_SESSION['array']) . "<br>";
 
     ?>
 
