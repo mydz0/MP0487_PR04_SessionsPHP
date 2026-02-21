@@ -34,13 +34,10 @@
     //c) Añade un botón para calcular el valor medio.
 
     if (isset($_POST['average'])) {
-
-        $sum = 0;
-        if (isset($_POST['average'])) {
-            $average = array_sum($_SESSION['array']) / count($_SESSION['array']);
-            echo "Average: " . $average;
-        }
+        $average = array_sum($_SESSION['array']) / count($_SESSION['array']);
+        echo "Average: " . $average;
     }
+
 
     //d) Botón reset limpia el formulario
     if (isset($_POST['reset'])) {
