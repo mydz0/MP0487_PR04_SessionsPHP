@@ -35,6 +35,8 @@
 
     if (isset($_POST['average'])) {
         $average = array_sum($_SESSION['array']) / count($_SESSION['array']);
+
+        echo "Current array: " . implode(", ", $_SESSION['array']) . "<br>";
         echo "Average: " . $average;
     }
 
